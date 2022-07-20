@@ -1,10 +1,6 @@
-
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
+.idea
+postgres
+/docker/php/Dockerfile.dev
+docker-compose.override.yml
+/docker/php/dev.php.ini
+/es/
