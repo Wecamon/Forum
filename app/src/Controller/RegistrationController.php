@@ -31,11 +31,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
-            $user->addRole(User::ROLE_STUDENT);
+            $user->addRole(User::ROLE_USER);
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
                 $user,

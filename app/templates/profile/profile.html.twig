@@ -4,8 +4,13 @@
 
 {% block body %}
     <h1>Your profile</h1>
+
     {{ form_start(profileForm) }}
-    {{ form_widget(profileForm) }}
+    {{ form_row(profileForm.age)}}
+    {{ form_row(profileForm.gender)}}
+    {{ form_row(profileForm.bio)}}
     <input type='submit' name='submit' value='Save'></input>
     {{ form_end(profileForm) }}
+
+    Your username: {{ app.user.username }}
 {% endblock %}
