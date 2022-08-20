@@ -12,7 +12,6 @@ class PeopleController extends AbstractController
     #[Route('/people', name: 'app_people')]
     public function index(UserRepository $userRepository): Response
     {
-        dd($userRepository->findOneBy(['username' => 'test']));
         return $this->render('people/people.html.twig', [
             'users' => $userRepository->findAll()
         ]);

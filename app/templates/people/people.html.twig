@@ -3,8 +3,12 @@
 {% block title %}People{% endblock %}
 
 {% block body %}
-    <h1>People</h1>
+    <h1 class="text-center">People</h1>
+    <p class="text-center"> Вот они, слева направо: </p>
+    <p class="text-center">
     {% for user in users %}
-    {{ user.username }}
+    {{ user.username }}<br>
     {% endfor %}
+    </p>
+    
 {% endblock %}
