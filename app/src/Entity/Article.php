@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,16 +13,21 @@ class Article
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $Heading = null;
+    private string $heading;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $publicationTime = null;
+    private DateTimeImmutable $publicationTime;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $text = null;
+    private string $text;
+
+    public function __construct() 
+    {
+        $this->publicationTime = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -30,26 +36,19 @@ class Article
 
     public function getHeading(): ?string
     {
-        return $this->Heading;
+        return $this->heading;
     }
 
-    public function setHeading(string $Heading): self
+    public function setHeading(string $heading): self
     {
-        $this->Heading = $Heading;
+        $this->heading = $heading;
 
         return $this;
     }
 
-    public function getPublicationTime(): ?\DateTimeImmutable
+    public function getPublicationTime(): ?DateTimeImmutable
     {
         return $this->publicationTime;
-    }
-
-    public function setPublicationTime(\DateTimeImmutable $publicationTime): self
-    {
-        $this->publicationTime = $publicationTime;
-
-        return $this;
     }
 
     public function getText(): ?string

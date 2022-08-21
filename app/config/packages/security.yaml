@@ -33,7 +33,7 @@ security:
     access_control:
         - { path: ^/login, role: PUBLIC_ACCESS}
         - { path: ^/register, role: PUBLIC_ACCESS}
-        - { path: ^/, role: ROLE_USER }
+        - { path: ^/, role: [ROLE_USER, ROLE_ADMIN]}
 
 when@test:
     security:

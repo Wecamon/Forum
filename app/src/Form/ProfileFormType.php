@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
@@ -16,14 +17,24 @@ class ProfileFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('bio', TextareaType::class)
+            ->add('bio', TextareaType::class, [
+                'attr' => [
+                    'style' => 'resize: none; width: 450px; height: 150px' 
+                ]
+            ])
             ->add('gender', ChoiceType::class, [
                 'choices'  => [
                     'Male' => 'Male',
                     'Female' => 'Female'
-                ],
+                ], 
+                'expanded' => true
             ])
-            ->add('age', IntegerType::class)
+            ->add('age', IntegerType::class, [
+                'attr' => [
+                    'min' => 3,
+                    'max' => 150
+                ]
+            ])
         ;
     }
 
